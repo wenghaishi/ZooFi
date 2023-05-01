@@ -1,12 +1,16 @@
 import axios from "axios";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
+import PriceCard from "./PriceCard";
 
 const Prices = () => {
+  const [prices, setPrices] = useState([]);
   const getCryptoPrices = async () => {
     try {
       const response = await axios.get(
         "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,binancecoin,xrp,cardano&vs_currencies=usd"
       );
+      setPrices(Object.entries(response.data));
+      console.log(Object.entries(response.data))
       return response.data;
     } catch (error) {
       console.error(error);
@@ -18,8 +22,8 @@ const Prices = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Prices</h1>
+    <div className="flex flex-row justify-evenly items-center">
+      {prices.map((coin, i) => (<PriceCard key={i} coinName={coin[0]} coinPrice={coin[1].usd}/>))}
     </div>
   );
 };
