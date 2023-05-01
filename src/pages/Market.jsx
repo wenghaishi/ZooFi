@@ -25,7 +25,7 @@ const Market = () => {
   return (
     <div className="text-center">
       <Navbar />
-      <h1 className="text-xl my-4">Cryptocurrencies by Market Cap</h1>
+      <h1 className="text-xl my-6">Cryptocurrencies by Market Cap</h1>
       <MarketTopbar />
       <div>
         {prices.map((coin, i) => (

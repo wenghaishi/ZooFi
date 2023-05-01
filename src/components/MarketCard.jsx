@@ -9,7 +9,7 @@ const MarketCard = (props) => {
           <img src={props.img} alt="" className="h-8" />
         </div>
         <h1 className="w-1/4 text-right">${props.price}</h1>
-        <h1 className="w-1/4 text-right">{props.dayChange}</h1>
+        <h1 className={`w-1/4 text-right ${props.dayChange.toFixed(1) > 0 ? 'text-green-700' : 'text-red-700'}`}>{props.dayChange.toFixed(1)}%</h1>
       </div>
       <hr></hr>
     </div>
