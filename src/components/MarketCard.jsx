@@ -1,0 +1,19 @@
+import React from "react";
+
+const MarketCard = (props) => {
+  return (
+    <div>
+      <div className="flex flex-row my-4 justify-evenly items-center">
+        <div className="w-1/6 flex flex-row justify-between items-center">
+          <h1 className="text-left">{props.name}</h1>
+          <img src={props.img} alt="" className="h-8" />
+        </div>
+        <h1 className="w-1/4 text-right">${props.price}</h1>
+        <h1 className="w-1/4 text-right">{props.dayChange}</h1>
+      </div>
+      <hr></hr>
+    </div>
+  );
+};
+
+export default MarketCard;
