@@ -10,7 +10,7 @@ const News = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://cryptopanic.com/api/v1/posts/?auth_token=${process.env.NEWS_API_KEY}&public=true`
+          `https://cryptopanic.com/api/v1/posts/?auth_token=${import.meta.env.VITE_NEWS_API_KEY}&public=true`
         );
         const data = await response.json();
         console.log(data);
