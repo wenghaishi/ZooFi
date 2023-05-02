@@ -6,6 +6,8 @@ import Coin from "./pages/Coin";
 import News from "./pages/News";
 import Portfolio from "./pages/Portfolio";
 
+
+
 function App() {
   return (
     <BrowserRouter>
