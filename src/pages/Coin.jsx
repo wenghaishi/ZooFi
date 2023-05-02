@@ -1,10 +1,13 @@
 import { useParams } from "react-router-dom";
 import priceList from "../../markets.json";
 import Navbar from "../components/Navbar";
+import Chart from "../components/Chart";
+
 
 const Coin = () => {
   const { id } = useParams();
   const coin = priceList.find((c) => c.symbol === id);
+  const coinId = coin.id
   return (
     <div>
       <Navbar />
@@ -24,13 +27,13 @@ const Coin = () => {
             })}
           </h1>
           <h1
-            className={`text-sm ${
-              coin.price_change_percentage_24h.toFixed(1) > 0
+            className={`text-base ${
+              coin.price_change_percentage_24h > 0
                 ? "text-green-700"
                 : "text-red-700"
             }`}
           >
-            {coin.price_change_percentage_24h}%
+            {coin.price_change_percentage_24h.toFixed(1)}%
           </h1>
         </div>
 
@@ -65,6 +68,7 @@ const Coin = () => {
               })}
         </h2>
       </div>
+      <Chart id={coinId}/>
     </div>
   );
 };
