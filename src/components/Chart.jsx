@@ -27,7 +27,7 @@ const Chart = (props) => {
 
   return (
     <div className="flex justify-center">
-      <ResponsiveContainer width="70%" height={400}>
+      <ResponsiveContainer width="85%" height={400}>
         <LineChart
           data={graphData}
           margin={{ top: 70, right: 20, bottom: 5, left: 20 }}
