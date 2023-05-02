@@ -3,25 +3,27 @@ import axios from "axios";
 import Navbar from "../components/Navbar";
 import MarketCard from "../components/MarketCard";
 import MarketTopbar from "../components/MarketTopbar";
+import priceList from "../../markets.json"
 
 const Market = () => {
-  const [prices, setPrices] = useState([]);
+  const [prices, setPrices] = useState(priceList);
 
-  useEffect(() => {
-    const fetchPrices = async () => {
-      try {
-        const response = await axios.get(
-          "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en"
-        );
-        setPrices(response.data);
-        console.log(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchPrices = async () => {
+  //     try {
+  //       const response = await axios.get(
+  //         "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en"
+  //       );
+  //       setPrices(response.data);
+  //       console.log(response.data);
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   };
 
-    fetchPrices();
-  }, []);
+  //   fetchPrices();
+  // }, []);
+  
   return (
     <div className="text-center">
       <Navbar />
@@ -29,7 +31,7 @@ const Market = () => {
       <MarketTopbar />
       <div>
         {prices.map((coin, i) => (
-          <MarketCard key={i} price={coin.current_price} img={coin.image} name={coin.name} dayChange={coin.price_change_percentage_24h}/>
+          <MarketCard key={i} price={coin.current_price} img={coin.image} name={coin.name} dayChange={coin.price_change_percentage_24h} symbol={coin.symbol}/>
         ))}
       </div>
     </div>
