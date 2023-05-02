@@ -3,11 +3,10 @@ import priceList from "../../markets.json";
 import Navbar from "../components/Navbar";
 import Chart from "../components/Chart";
 
-
 const Coin = () => {
   const { id } = useParams();
   const coin = priceList.find((c) => c.symbol === id);
-  const coinId = coin.id
+  const coinId = coin.id;
   return (
     <div>
       <Navbar />
@@ -68,7 +67,7 @@ const Coin = () => {
               })}
         </h2>
       </div>
-      <Chart id={coinId}/>
+      <Chart id={coinId} />
     </div>
   );
 };

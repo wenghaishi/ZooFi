@@ -26,11 +26,11 @@ const Chart = (props) => {
   }, []);
 
   return (
-    <div>
+    <div className="flex justify-center">
       <ResponsiveContainer width="70%" height={400}>
         <LineChart
           data={graphData}
-          margin={{ top: 5, right: 20, bottom: 5, left: 20 }}
+          margin={{ top: 70, right: 20, bottom: 5, left: 20 }}
         >
           <Line type="monotone" dataKey="uv" stroke="#8884d8" />
           <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
